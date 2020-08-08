@@ -1,13 +1,368 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Lato", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  background-color: #ffffff;
+  color: #121212;
+}
+
+.App {
+  width: 90%;
+  margin: 0 5%;
+}
+
+/* Backdrop Component */
+* {
+  box-sizing: border-box;
+}
+.backdrop {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 3;
+}
+@media (min-width: 769px) {
+  .backdrop {
+    display: none;
+  }
+}
+
+/* Drawer Component */
+.drawer {
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 100%;
+  width: 275px;
+  z-index: 4;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+.drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.drawer ul li {
+  padding: 1rem 0.5rem;
+}
+.drawer a {
+  color: black;
+  text-decoration: none;
+}
+.a {
+  border: black 2px solid;
+}
+.drawer.open {
+  transform: translateX(0) !important;
+}
+@media (min-width: 769px) {
+  .drawer {
+    display: none;
+  }
+}
+
+/* Hamburger Component */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  height: 24px;
+  width: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  justify-content: space-around;
+}
+.hamburger-line {
+  width: 32px;
+  height: 2px;
+  background-color: #4a5759;
+}
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Navbar Component */
+.page-header {
+  padding: 1rem;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color: white;
+}
+.page-header .navbar-logo a {
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  white-space: nowrap;
+}
+.page-header .navbar {
+  height: 100%;
+  align-items: center;
+  display: flex;
+}
+.page-header .navbar-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.page-header .navbar-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.page-header .navbar-links ul li {
+  padding: 0 0.5rem;
+}
+.page-header .between {
+  flex: 1;
+}
+.a {
+  border: 3px solid black;
+}
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .page-header {
+    padding: 0.5rem 6rem;
+  }
+  .page-header .navbar {
+    display: block;
+  }
+  .page-header .navbar-logo {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  .page-header .navbar-logo a {
+    text-align: center;
+    font-size: 3rem;
+  }
+  .page-header .navbar-links ul {
+    justify-content: space-evenly;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Home Component */
+
+.image {
+  text-align: center;
+}
+
+.image img {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #ffffff;
+  padding-bottom: 20px;
+  margin: 7% 0;
+}
+
+.intro {
+  padding: 0 250px 50px 250px;
+  margin-bottom: 7%;
+}
+
+.intro h2 {
+  text-align: left;
+  font-size: 50px;
+  padding-bottom: 10px;
+  /*padding-left: 300px;*/
+}
+
+.intro p {
+  color: rgba(82, 82, 82, 0.6);
+  /*padding-left: 300px;
+  padding-right: 300px;*/
+  font-size: 18px;
+  line-height: 35px;
+}
+
+@media screen and (max-width: 965px) {
+  .intro {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .intro {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .intro {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .intro h2 {
+    font-size: 40px;
+  }
+
+  .intro p {
+    line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .intro {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .intro h2 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .intro {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .intro p {
+    line-height: 25px;
+  }
+}
+
+/* CardList Component */
+.card-container {
+  margin: 0px 10%;
+  margin: 4vh 2vw 4vh 5vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 800px) and (min-width: 670px) {
+  .card-container {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .card-container {
+    align-items: flex-start;
+  }
+}
+
+/* Card Component */
+.card-body {
+  position: relative;
+  height: 40vh;
+  width: 30%;
+  color: #ddd;
+  border-radius: 0px;
+  margin: 0 0 5% 0;
+}
+/* .card-body:hover .card-image{
+  transform: scale(1.25);
+} */
+
+.card-image {
+  max-width: 100%;
+  max-height: 35vh;
+  padding: 0;
+  margin: 0 0 5% 0;
+  text-align: center;
+  /* overflow: hidden; */
+}
+
+.card-title {
+  position: absolute;
+  bottom: 0px;
+  margin: 0px 0;
+  font-size: 1.25rem;
+  color: black;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 800px) and (min-width: 670px) {
+  .card-body {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-body {
+    width: 45%;
+    padding: 0px;
+    margin: 30px;
+    color: #ddd;
+  }
+}
+
+/* Contact Component */
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+input,
+textarea {
+  height: 5vh;
+  width: 45vw;
+  background-color: rgba(151, 151, 151, 0.1);
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 2px;
+  margin-top: 1%;
+  margin-bottom: 4%;
+}
+textarea {
+  height: 10vh;
+}
+label {
+  color: rgba(82, 82, 82, 0.6);
+}
+.contact-name {
+  width: 21.5vw;
+}
+button {
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 2px;
+  height: 6vh;
+  width: 8vw;
+  font-size: 14px;
 }
